@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>CodeKick | Home</title>
+
+    <link rel="stylesheet" href="./style.css" />
+
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <style>
+
+      /* Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      /* Header */
+      .header {
+        width: 100%;
+        min-height: 90px;
+        padding: 10px 6%;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+
+        background: rgba(8, 8, 22, 0.88);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+
+        border-bottom: 1px solid rgba(185, 242, 120, 0.2);
+        box-shadow: 0 4px 20px rgba(81, 205, 243, 0.603);
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+      }
+
+      /* Logo */
+      .logo {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+      }
+
+      .logo a {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo img {
+        display: block;
+        width: 180px;
+        height: 75px;
+        object-fit: contain;
+      }
+
+      /* Navigation */
+      .nav ul {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        gap: 28px;
+        list-style: none;
+      }
+
+      .nav ul li a {
+        display: inline-block;
+        text-decoration: none;
+        color: #fdfdff;
+        font-size: 0.95rem;
+        font-weight: 600;
+        padding: 10px 0;
+        transition: color 0.3s ease;
+      }
+
+      .nav ul li a:hover,
+      .nav ul li a.active {
+        color: rgb(253, 48, 202);
+        text-shadow: 0 0 12px rgb(255, 230, 0);
+      }
+
+      /* Responsive Header */
+      @media (max-width: 768px) {
+        .header {
+          padding: 10px 4%;
+          min-height: 80px;
+          gap: 15px;
+        }
+
+        .logo img {
+          width: 110px;
+          height: 55px;
+        }
+
+        .nav ul {
+          gap: 12px;
+        }
+
+        .nav ul li a {
+          font-size: 0.78rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .header {
+          flex-direction: column;
+          justify-content: center;
+          gap: 5px;
+          padding: 8px 10px;
+        }
+
+        .logo img {
+          width: 110px;
+          height: 42px;
+        }
+
+        .nav ul {
+          justify-content: center;
+          gap: 14px;
+        }
+
+        .nav ul li a {
+          font-size: 0.75rem;
+          padding: 5px 0;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          transform: none;
+          width: 100%;
+          padding: 150px 20px 40px;
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+
+      /* Footer */
+
+      .footer {
+        padding: 45px 7% 20px;
+        background: #171727;
+        color: var(--white);
+      }
+
+      .footer-main {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+        padding-bottom: 30px;
+      }
+
+      /* Footer Logo */
+      .footer-logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-shrink: 0;
+      }
+
+      .footer-logo a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .footer-logo img {
+        display: block;
+        width: 200px;
+        height: 80px;
+        object-fit: contain;
+        text-align: center;
+      }
+
+      .footer-main p {
+        color: #b4b2c6;
+        font-size: 13px;
+        margin-top: 5px;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 50px;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 28px;
+        list-style: none;
+      }
+
+      .footer-links a {
+        display: inline-block;
+        text-decoration: none;
+        color: #fdfdff;
+        font-size: 0.95rem;
+        font-weight: 600;
+        padding: 10px 0;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover,
+      .footer-links a.active {
+        color: rgb(253, 48, 202);
+        text-shadow: 0 0 12px rgb(255, 230, 0);
+      }
+
+      .footer-bottom {
+        padding-top: 18px;
+        border-top: 1px solid #343347;
+        color: #b4b2c6;
+        text-align: center;
+        font-size: 15px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <a href="index.html">
+          <img src="images/CodeKick Logo.png" alt="CodeKick Logo" />
+        </a>
+      </div>
+
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="About.html">About</a></li>
+          <li><a href="Services.html">Services</a></li>
+          <li><a href="Portfolio.html" class="active">Portfolio</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Main Body -->
+    <main>
+
+      <!--====Section Introduction=======------------------------------------->
+      
+      <section class="Container-intro">
+        <div class="hero-intro">
+          <span class="eyebrow">SELECTED PROJECTS</span>
+          <h1>Ideas transformed into <span>visual experiences.</span></h1>
+          <p>Explore creative concept projects that demonstrate Codekick’s design approach.</p>
+        </div>
+      </section>
+
+      <!--====Section images card =======------------------------------------->
+
+      <section class="section portfolio-section">
+        <div class="portfolio-grid">
+          <article class="portfolio-card">
+            <img src="images/brand-identity.jpg" alt="brand-identity" loading="lazy"/>
+            <div class="portfolio-info">
+              <span class="category-label">Branding</span>
+              <h3>Brand Identity</h3>
+              <p>
+                A cohesive visual identity concept combining color, typography,
+                and distinctive elements.
+              </p>
+            </div>
+          </article>
+          <article class="portfolio-card">
+            <img src="images/moder-lifestyle.jpg" alt="moder-lifestyle" loading="lazy"/>
+            <div class="portfolio-info">
+              <span class="category-label">Design</span>
+              <h3>Modern Lifestyle</h3>
+              <p>
+                A contemporary visual concept inspired by simplicity and
+                elegance.
+              </p>
+            </div>
+          </article>
+          <article class="portfolio-card">
+            <img src="images/business-experience.jpg" alt="business-experience" loading="lazy"/>
+            <div class="portfolio-info">
+              <span class="category-label">Digital</span>
+              <h3>Business Experience</h3>
+              <p>
+                A professional experience concept that helps businesses present
+                their services clearly.
+              </p>
+            </div>
+          </article>
+          <article class="portfolio-card">
+            <img src="images/creative-campaign.jpg" alt="creative-campaign" loading="lazy"/>
+            <div class="portfolio-info">
+              <span class="category-label">Design</span>
+              <h3>Creative Campaign</h3>
+              <p>
+                A creative campaign concept built around color and compelling
+                visual composition.
+              </p>
+            </div>
+          </article>
+          <article class="portfolio-card">
+            <img src="images/digital-experience.jpg" alt="digital-experience" loading="lazy"/>
+            <div class="portfolio-info">
+              <span class="category-label">Digital</span>
+              <h3>Digital Experience</h3>
+              <p>
+                A clear, organized, and user-friendly digital experience
+                concept.
+              </p>
+            </div>
+          </article>
+          <article class="portfolio-card">
+            <img src="images/creative-design.jpg" alt="creative-design" loading="lazy"/>
+            <div class="portfolio-info">
+              <span class="category-label">Branding</span>
+              <h3>Creative Design</h3>
+              <p>
+                Exploring early ideas and turning them into a cohesive visual
+                direction.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+
+    <!--====Section Comments =======------------------------------------->
+
+        <section class="Container-values">
+
+            <div class="section-heading-centered">
+                <span class="eyebrow">KIND WORDS</span>
+                <h2>What matters to <span>our clients?</span></h2>
+            </div>
+
+            <div class="comments-grid">
+
+                <!-- Comment 1 -->
+                <article class="comments-card">
+                    <span class="quote-mark">“</span>
+                    <p>
+                        Clear design and attention to detail can make a major
+                        difference to a brand experience.
+                    </p>
+                    <h3>Mohamed Mohamed</h3>
+                    <small>Branding Project</small>
+                </article>
+
+                <!-- Comment 2 -->
+                <article class="comments-card">
+                    <span class="quote-mark">“</span>
+                    <p>
+                        Good communication and understanding the idea from
+                        the start help create a cohesive result.
+                    </p>
+                    <h3>Hamdan AlNyadi</h3>
+                    <small>Design Project</small>
+                </article>
+
+                <!-- Comment 3 -->
+                <article class="comments-card">
+                    <span class="quote-mark">“</span>
+                    <p>
+                        Simplicity and usability are essential to any
+                        successful digital experience.
+                    </p>
+                    <h3>Ahmed AlKhazraji</h3>
+                    <small>Digital Project</small>
+                </article>
+
+            </div>
+        </section>  
+
+
+      </section>
+      
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-main">
+        <!-- Footer Links on the Left -->
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="contact.html">Contact</a>
+        </div>
+
+        <!-- Footer Logo on the Right -->
+        <div class="footer-logo">
+          <a href="index.html">
+            <img src="images/CodeKick Logo.png" alt="CodeKick Logo" />
+          </a> 
+
+          <p>Modern solutions start with an idea</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom" dir="ltr">
+        © 2026 Codekick. All Rights Reserved.
+      </div>
+    </footer>
+
+    
+    </script>
+  </body>
+</html>
+

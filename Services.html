@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>CodeKick | Home</title>
+
+    <link rel="stylesheet" href="./style.css" />
+
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <style>
+
+
+      /* Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      /* Header */
+      .header {
+        width: 100%;
+        min-height: 90px;
+        padding: 10px 6%;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+
+        background: rgba(8, 8, 22, 0.88);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+
+        border-bottom: 1px solid rgba(185, 242, 120, 0.2);
+        box-shadow: 0 4px 20px rgba(81, 205, 243, 0.603);
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+      }
+
+      /* Logo */
+      .logo {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+      }
+
+      .logo a {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo img {
+        display: block;
+        width: 180px;
+        height: 75px;
+        object-fit: contain;
+      }
+
+      /* Navigation */
+      .nav ul {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        gap: 28px;
+        list-style: none;
+      }
+
+      .nav ul li a {
+        display: inline-block;
+        text-decoration: none;
+        color: #fdfdff;
+        font-size: 0.95rem;
+        font-weight: 600;
+        padding: 10px 0;
+        transition: color 0.3s ease;
+      }
+
+      .nav ul li a:hover,
+      .nav ul li a.active {
+        color: rgb(253, 48, 202);
+        text-shadow: 0 0 12px rgb(255, 230, 0);
+      }
+
+      /* Responsive Header */
+      @media (max-width: 768px) {
+        .header {
+          padding: 10px 4%;
+          min-height: 80px;
+          gap: 15px;
+        }
+
+        .logo img {
+          width: 110px;
+          height: 55px;
+        }
+
+        .nav ul {
+          gap: 12px;
+        }
+
+        .nav ul li a {
+          font-size: 0.78rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .header {
+          flex-direction: column;
+          justify-content: center;
+          gap: 5px;
+          padding: 8px 10px;
+        }
+
+        .logo img {
+          width: 110px;
+          height: 42px;
+        }
+
+        .nav ul {
+          justify-content: center;
+          gap: 14px;
+        }
+
+        .nav ul li a {
+          font-size: 0.75rem;
+          padding: 5px 0;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          transform: none;
+          width: 100%;
+          padding: 150px 20px 40px;
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+
+      /* Footer */
+
+      .footer {
+        padding: 45px 7% 20px;
+        background: #171727;
+        color: var(--white);
+      }
+
+      .footer-main {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+        padding-bottom: 30px;
+      }
+
+      /* Footer Logo */
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+      }
+
+      .footer-logo a {
+        display: flex;
+        align-items: center;
+      }
+
+      .footer-logo img {
+        display: block;
+        width: 200px;
+        height: 80px;
+        object-fit: contain;
+      }
+
+      .footer-main p {
+        color: #b4b2c6;
+        font-size: 13px;
+        margin-top: 5px;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 50px;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 28px;
+        list-style: none;
+      }
+
+      .footer-links a {
+        display: inline-block;
+        text-decoration: none;
+        color: #fdfdff;
+        font-size: 0.95rem;
+        font-weight: 600;
+        padding: 10px 0;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover,
+      .footer-links a.active {
+        color: rgb(253, 48, 202);
+        text-shadow: 0 0 12px rgb(255, 230, 0);
+      }
+
+      .footer-bottom {
+        padding-top: 18px;
+        border-top: 1px solid #343347;
+        color: #b4b2c6;
+        text-align: center;
+        font-size: 15px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <a href="index.html">
+          <img src="images/CodeKick Logo.png" alt="CodeKick Logo" />
+        </a>
+      </div>
+
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="About.html">About</a></li>
+          <li><a href="Services.html" class="active">Services</a></li>
+          <li><a href="Portfolio.html">Portfolio</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Main Body -->
+    <main>
+
+      <!--====Section Introduction=======------------------------------------->
+      
+      <section class="Container-intro">
+        <div class="hero-intro">
+          <span class="eyebrow">OUR SERVICES</span>
+          <h1>Services that build <span>your identity.</span></h1>
+          <p>Creative solutions that help your brand grow and stand out in the digital world.</p>
+        </div>
+      </section>
+
+      <!--====Section Search =======------------------------------------->
+      
+      <section class="section services-page-section">
+        <!--====Section Search bar=======-->
+        <div class="filter-buttons" aria-label="Filter services">
+          <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button> 
+          <button class="filter-btn" data-filter="branding" aria-pressed="false">Branding</button>
+          <button class="filter-btn" data-filter="design" aria-pressed="false">Design</button>
+          <button class="filter-btn" data-filter="digital" aria-pressed="false">Digital</button>
+        </div>
+
+        <!--====Section Search cards=======-->
+        <div class="service-grid service-filter-grid">
+          <article class="filter-card" data-category="branding">
+            <span class="service-number">01</span>
+            <h3>Visual Identity</h3>
+            <p>
+              Build a clear, distinctive identity with visual elements that
+              reflect your brand personality.
+            </p>
+            <span class="category-label">Branding</span>
+          </article>
+          <article class="filter-card" data-category="design">
+            <span class="service-number">02</span>
+            <h3>Design</h3>
+            <p>
+              Thoughtful, modern designs that present your brand professionally.
+            </p>
+            <span class="category-label">Design</span>
+          </article>
+          <article class="filter-card" data-category="digital">
+            <span class="service-number">03</span>
+            <h3>Digital Solutions</h3>
+            <p>
+              Digital solutions that help businesses grow their presence and
+              improve audience experience.
+            </p>
+            <span class="category-label">Digital</span>
+          </article>
+          <article class="filter-card" data-category="digital">
+            <span class="service-number">04</span>
+            <h3>Content Creation</h3>
+            <p>
+              Creative content that helps your brand communicate clearly with
+              its audience.
+            </p>
+            <span class="category-label">Digital</span>
+          </article>
+          <article class="service-card filter-card" data-category="branding">
+            <span class="service-number">05</span>
+            <h3>Brand Development</h3>
+            <p>
+              Refine your brand image and strengthen the consistency of its
+              identity and presence.
+            </p>
+            <span class="category-label">Branding</span>
+          </article>
+        </div>
+
+
+      </section>
+      
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-main">
+        <!-- Footer Links on the Left -->
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="contact.html">Contact</a>
+        </div>
+
+        <!-- Footer Logo on the Right -->
+        <div class="footer-logo">
+          <a href="index.html">
+            <img src="images/CodeKick Logo.png" alt="CodeKick Logo" />
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom" dir="ltr">
+        © 2026 Codekick. All Rights Reserved.
+      </div>
+    </footer>
+
+    <script>
+        // Get all filter buttons and service cards
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const serviceCards = document.querySelectorAll(".filter-card");
+
+        // Run when a filter button is clicked
+        filterButtons.forEach(function (button) {
+
+            button.addEventListener("click", function () {
+
+                // Get the selected category
+                const selectedFilter = button.dataset.filter;
+
+                // Update the active button
+                filterButtons.forEach(function (item) {
+
+                    const isActive = item === button;
+
+                    item.classList.toggle("active", isActive);
+                    item.setAttribute("aria-pressed", isActive);
+
+                });
+
+                // Show or hide service cards
+                serviceCards.forEach(function (card) {
+
+                    const category = card.dataset.category;
+
+                    // Show all cards or only matching categories
+                    if (
+                        selectedFilter === "all" ||
+                        category === selectedFilter
+                    ) {
+                        card.hidden = false;
+                    } else {
+                        card.hidden = true;
+                    }
+
+                });
+
+            });
+
+        });
+    </script>
+  </body>
+</html>
+```

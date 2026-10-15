@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>CodeKick | Home</title>
+
+    <link rel="stylesheet" href="./style.css" />
+
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <style>
+
+      /* Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      /* Header */
+      .header {
+        width: 100%;
+        min-height: 90px;
+        padding: 10px 6%;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+
+        background: rgba(8, 8, 22, 0.88);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+
+        border-bottom: 1px solid rgba(185, 242, 120, 0.2);
+        box-shadow: 0 4px 20px rgba(81, 205, 243, 0.603);
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+      }
+
+      /* Logo */
+      .logo {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+      }
+
+      .logo a {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo img {
+        display: block;
+        width: 180px;
+        height: 75px;
+        object-fit: contain;
+      }
+
+      /* Navigation */
+      .nav ul {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        gap: 28px;
+        list-style: none;
+      }
+
+      .nav ul li a {
+        display: inline-block;
+        text-decoration: none;
+        color: #fdfdff;
+        font-size: 0.95rem;
+        font-weight: 600;
+        padding: 10px 0;
+        transition: color 0.3s ease;
+      }
+
+      .nav ul li a:hover,
+      .nav ul li a.active {
+        color: rgb(253, 48, 202);
+        text-shadow: 0 0 12px rgb(255, 230, 0);
+      }
+
+      /* Responsive Header */
+      @media (max-width: 768px) {
+        .header {
+          padding: 10px 4%;
+          min-height: 80px;
+          gap: 15px;
+        }
+
+        .logo img {
+          width: 110px;
+          height: 55px;
+        }
+
+        .nav ul {
+          gap: 12px;
+        }
+
+        .nav ul li a {
+          font-size: 0.78rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .header {
+          flex-direction: column;
+          justify-content: center;
+          gap: 5px;
+          padding: 8px 10px;
+        }
+
+        .logo img {
+          width: 110px;
+          height: 42px;
+        }
+
+        .nav ul {
+          justify-content: center;
+          gap: 14px;
+        }
+
+        .nav ul li a {
+          font-size: 0.75rem;
+          padding: 5px 0;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          transform: none;
+          width: 100%;
+          padding: 150px 20px 40px;
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+
+      /* Footer */
+
+      .footer {
+        padding: 45px 7% 20px;
+        background: #171727;
+        color: var(--white);
+      }
+
+      .footer-main {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+        padding-bottom: 30px;
+      }
+
+      /* Footer Logo */
+      .footer-logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-shrink: 0;
+      }
+
+      .footer-logo a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .footer-logo img {
+        display: block;
+        width: 200px;
+        height: 80px;
+        object-fit: contain;
+        text-align: center;
+      }
+
+      .footer-main p {
+        color: #b4b2c6;
+        font-size: 13px;
+        margin-top: 5px;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 50px;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 28px;
+        list-style: none;
+      }
+
+      .footer-links a {
+        display: inline-block;
+        text-decoration: none;
+        color: #fdfdff;
+        font-size: 0.95rem;
+        font-weight: 600;
+        padding: 10px 0;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover,
+      .footer-links a.active {
+        color: rgb(253, 48, 202);
+        text-shadow: 0 0 12px rgb(255, 230, 0);
+      }
+
+      .footer-bottom {
+        padding-top: 18px;
+        border-top: 1px solid #343347;
+        color: #b4b2c6;
+        text-align: center;
+        font-size: 15px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <a href="index.html">
+          <img src="images/CodeKick Logo.png" alt="CodeKick Logo" />
+        </a>
+      </div>
+
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="About.html">About</a></li>
+          <li><a href="Services.html">Services</a></li>
+          <li><a href="Portfolio.html">Portfolio</a></li>
+          <li><a href="Contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Main Body -->
+    <main>
+
+      <!--====Section Introduction=======------------------------------------->
+      
+      <section class="Container-intro">
+        <div class="hero-intro">
+          <span class="eyebrow">LET'S TALK</span>
+          <h1>Let’s talk about <span>your idea.</span></h1>
+          <p>Have a new project or idea? Tell us about it and let’s explore how we can help.</p>
+        </div>
+      </section>
+
+      <!--====Section contact =======------------------------------------->
+
+        <section class="container-contact">
+            <div class="contact-form-card">
+                <h2>Send us a message</h2>
+                <p class="form-intro">Complete the fields below and tell us about your idea.</p>
+                <form id="contact-form" novalidate>
+                    <div class="form-group">
+                        <label for="full-name">Full name</label>
+                        <input type="text" id="full-name" name="name" placeholder="Enter your full name" autocomplete="name"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" id="email" name="email" placeholder="example@email.com" dir="ltr"  autocomplete="email"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+971 50 000 0000" dir="ltr" autocomplete="tel"/> 
+                    </div>
+                    <div class="form-group">
+                        <label for="service-type">Service Type</label>
+                        <select id="service-type" name="service">
+                            <option value="">Choose a service</option>
+                            <option value="Visual Identity">Visual Identity</option>
+                            <option value="Design">Design</option>
+                            <option value="Digital Solutions">Digital Solutions</option>
+                            <option value="Content Creation">Content Creation</option>
+                            <option value="Brand Development">Brand Development</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell us about your idea or project..."></textarea>
+                    </div>
+                    <div id="form-feedback" class="form-feedback" role="status" aria-live="polite"></div>
+                    <button type="submit" class="btn btn-primary submit-btn">Send Message</button>
+                </form>
+            </div>
+
+        </section>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-main">
+        <!-- Footer Links on the Left -->
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="contact.html">Contact</a>
+        </div>
+
+        <!-- Footer Logo on the Right -->
+        <div class="footer-logo">
+          <a href="index.html">
+            <img src="images/CodeKick Logo.png" alt="CodeKick Logo" />
+          </a> 
+
+          <p>Modern solutions start with an idea</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom" dir="ltr">
+        © 2026 Codekick. All Rights Reserved.
+      </div>
+    </footer>
+
+    
+    <script>
+        // 1. Find the contact form and its elements
+    const contactForm = document.querySelector("#contact-form");
+
+    const nameInput = document.querySelector("#full-name");
+    const emailInput = document.querySelector("#email");
+    const phoneInput = document.querySelector("#phone");
+    const serviceInput = document.querySelector("#service-type");
+    const messageInput = document.querySelector("#message");
+    const feedback = document.querySelector("#form-feedback");
+
+    // 2. Check that the required HTML elements exist
+    if (
+        contactForm &&
+        nameInput &&
+        emailInput &&
+        phoneInput &&
+        serviceInput &&
+        messageInput &&
+        feedback
+    ) {
+
+        // 3. Display an error or success message
+        function showFeedback(message, type, input = null) {
+            feedback.textContent = message;
+            feedback.className = "form-feedback " + type;
+
+            if (input) {
+                input.classList.add("invalid");
+                input.focus();
+            }
+        }
+
+        // 4. Remove the error style when the user edits a field
+        const fields = [
+            nameInput,
+            emailInput,
+            phoneInput,
+            serviceInput,
+            messageInput
+        ];
+
+        fields.forEach(function (input) {
+            input.addEventListener("input", clearError);
+            input.addEventListener("change", clearError);
+        });
+
+        function clearError() {
+            this.classList.remove("invalid");
+
+            feedback.textContent = "";
+            feedback.className = "form-feedback";
+        }
+
+        // 5. Validate the form when the user submits it
+        contactForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            // Clear previous error messages and styles
+            fields.forEach(function (input) {
+                input.classList.remove("invalid");
+            });
+
+            feedback.textContent = "";
+            feedback.className = "form-feedback";
+
+            // Check the name
+            if (nameInput.value.trim() === "") {
+                showFeedback(
+                    "Please enter your full name.",
+                    "error",
+                    nameInput
+                );
+                return;
+            }
+
+            // Check the email format
+            const email = emailInput.value.trim();
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailPattern.test(email)) {
+                showFeedback(
+                    "Please enter a valid email address.",
+                    "error",
+                    emailInput
+                );
+                return;
+            }
+
+            // Check the phone number
+            if (phoneInput.value.trim() === "") {
+                showFeedback(
+                    "Please enter your phone number.",
+                    "error",
+                    phoneInput
+                );
+                return;
+            }
+
+            // Check the message
+            if (messageInput.value.trim() === "") {
+                showFeedback(
+                    "Please enter your message.",
+                    "error",
+                    messageInput
+                );
+                return;
+            }
+
+            // 6. Display success when all required fields are valid
+            showFeedback(
+                "Your form is valid! Your message has not been sent yet.",
+                "success"
+            );
+
+            // Clear the fields only after validation succeeds
+            contactForm.reset();
+        });
+    }
+    </script>
+  </body>
+</html>
+
